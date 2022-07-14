@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Upgrade Membership
+{% endblock title %}
+
+
+{% block dashheader %}{% include "dashheader.html" %}{% endblock dashheader %}
+{% block content %}
+  <div class="container-fluid h-100">
+      <div class="row">
+          <div class="col-9 col-sm-5 col-md-5 col-lg-3"></div>
+          <div class="col-9 col-sm-5 col-md-5 col-lg-5 p-5">
+            <form style="width: 400px;" method="POST" action="{% url 'packageupgrade'  %}" enctype="multipart/form-data">
+            {% csrf_token %}
+                <div class="form-group">
+                  <p>Membership Package</p>
+                  <p>{{single.title}} Membership</p>
+                  <p>Fee {{single.dfee}}</p>
+                  {{upgradeform.as_p}}
+                  <input type="text" name="title"  value="{{single.title}}" value="{{upgradeform.title}}">
+                  <input type="hidden" name="title"  value="{{single.title}}">
+                  <input type="text" name="dfee" value="{{single.dfee}}" value="{{upgradeform.dfee}}">
+                  <input type="hidden" name="dfee" value="{{single.dfee}}">
+                </div>
+                <button type="submit" class="btn btn-primary">Upgrade</button>
+              </form>
+          </div>
+          <div class="col-9 col-sm-5 col-md-5 col-lg-3"></div>
+      </div>
+  </div>
+{% endblock content %}
+
+

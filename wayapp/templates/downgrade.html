@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Downgrade Membership
+{% endblock title %}
+
+
+{% block dashheader %}{% include "dashheader.html" %}{% endblock dashheader %}
+
+{% block content %}
+  <div class="container-fluid h-100">
+      <div class="row">
+          <div class="col-12 col-sm-6 col-md-6 col-lg-3"></div>
+          <div class="col-12 col-sm-6 col-md-6 col-lg-6 p-5">
+            <form style="width: 400px;" method="POST" action="{% url 'packagedowngrade' %}">
+            {% csrf_token %}
+                <div class="form-group">
+                  <p>Membership Package</p>
+                  <p>{{single.title}}    Membership</p>
+                  <input type="hidden" name="title"  value="{{single.title}}">
+                  <p>Fee {{single.dfee}}</p>
+                  {{downgradeform.as_p}}
+                  <input type="text" name="title"  value="{{single.title}}" value="{{downgradeform.title}}">
+                  <input type="hidden" name="title"  value="{{single.title}}">
+                  <input type="text" name="dfee" value="{{single.dfee}}" value="{{downgradeform.dfee}}">
+                  <input type="hidden" name="dfee" value="{{single.dfee}}">
+                </div>
+                <button type="submit" class="btn btn-primary">Downgrade</button>
+              </form>
+          </div>
+          <div class="col-12 col-sm-6 col-md-6 col-lg-3"></div>
+      </div>
+  </div>
+{% endblock content %}
+
+

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}
+   Membership 
+{% endblock title %}
+
+
+{% block banner %}{% include "banner.html" %}{% endblock banner %}
+
+{% block content %}
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-9 col-sm-5 col-md-5 col-lg-3 mb-1 mt-5 p-5"></div>
+          <div class="col-9 col-sm-5 col-md-5 col-lg-5 p-5">
+            <form style="width: 400px;" method="POST" action="{% url 'membership'  newmem.id %}">  
+            {% csrf_token %}
+                <div class="form-group">
+                  <h5 style="color: tomato; text-align: end; text-decoration: underline" >Membership  {{newmem.title}}</h5>
+                  <input type="hidden" name="title" value="{{newmem.title}}">
+                  <p style="text-decoration: underline; ">Fee  {{newmem.dfee}}</p>      
+                  <input type="hidden" name="dfee" value="{{newmem.dfee}}">
+                          
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputText1">First name</label>
+                  <input type="text" name="first_name" class="form-control" id="exampleInputText1">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputText1">Last name</label>
+                  <input type="text" name="last_name" class="form-control" id="exampleInputText1">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputText1">E-mail</label>
+                  <input type="text" name="username" class="form-control" id="exampleInputText1">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputText1">Phone</label>
+                  <input type="text" name="phone" class="form-control" id="exampleInputText1">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputText1">Password</label>
+                  <input type="password" name="password1" class="form-control" id="exampleInputText1">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputText1"> Confirm Password</label>
+                  <input type="password" name="password2" class="form-control" id="exampleInputText1">
+                </div>
+                <div class="form-group">
+                </div>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+              </form>
+          </div>
+          <div class="col-9 col-sm-5 col-md-5 col-lg-3"></div>
+      </div>
+  </div>
+{% endblock content %}

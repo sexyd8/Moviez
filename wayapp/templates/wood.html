@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Member
+{% endblock title %}
+
+{% block dashheader %}{% include "dashheader.html" %}{% endblock dashheader %}
+
+{% block content %}
+
+<!-- content section -->
+<div class="container-fluid dashhead">
+    <h1 class="text-center"> Wood Member</h1>
+    <ul class="list-unstyled">
+      <a class="nav-link" href="{% url 'deletemember' %}">Delete Membership <span class="sr-only">(current)</span></a> <br>
+        <li class="nav-item dropdown"  style="list-style: none;">
+            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Upgrade
+            </a>
+            <div class="dropdown-menu mt-2"  style="background: powderblue;" aria-labelledby="navbarDropdown">             
+              {% if upgrade %}
+                  {% for item in upgrade %}
+                  <a class="dropdown-item" href="{%  url 'upgrade' item.id %} ">{{item.title}}</a> 
+                  {% endfor %}                  
+              {% endif %}
+            </div>
+          </li>
+          <br>
+          <li class="nav-item dropdown" style="list-style: none;">
+            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Downgrade
+            </a>
+            <div class="dropdown-menu mt-2"  style="background: powderblue;" aria-labelledby="navbarDropdown">             
+              {% if downgrade %}
+                  {% for item in downgrade %}
+                  <a class="dropdown-item" href="{%  url 'downgrade' item.id %} ">{{item.title}}</a> 
+                  {% endfor %}                  
+              {% endif %}
+            </div>
+          </li>
+    </ul>
+    </div>
+<div class="container my-5">
+  <h1 class="text-center mb-4 text-warning">Wood Movies</h1>
+  <div class="row justify-content-center text-info">
+      {% if wood %}
+          {% for item in wood %}
+          <!--  -->
+          <div class="col-8 col-sm-5 col-md-5 col-lg-3 mt-3 mb-3"  data-aos="flip-left" data-aos-duration="3000">
+              <div class="card cardvids">
+                  <video >
+                      <source src="{{item.videofile.url}}" type="video/mp4">
+                  </video>
+                  <div class="card-body newvid">
+                  <h5 class="card-title">{{item.name}}</h5>
+                  <p class="card-text">{{item.description|slice:50}} ... </p>
+                  </div>
+              </div>
+          </div>
+          <!--  -->
+          {% endfor %}
+      {% endif %}
+  </div>
+</div> 
+</div>
+<!-- content section done -->
+
+    
+{% endblock content %}
+    
+  

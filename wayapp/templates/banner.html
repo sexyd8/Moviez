@@ -1,0 +1,70 @@
+{% load static %}
+
+ <!-- navbar  -->
+  <div class="container-fluid  mb-5" data-aos="zoom-in-right" data-aos-duration="3000">
+    <div id="carouselExampleCaptions" class="carousel slide newcarousel" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active h-100">
+            <img src="{% static '' %}img/pic9.jpg" class="d-block w-100 h-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Maniac Cop</h5>
+              <p>search for a killer in uniform who should be dead..</p>
+            </div>
+          </div>
+        <!-- carousel  -->
+        <!-- navbar  -->
+            
+<nav class="navbar navbar-expand-lg  govey">
+<a class="navbar-brand" href="#"><img src="{% static 'img/icon.jpg' %}"  style="width:  40px;"></a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mx-auto">
+    <li class="nav-item active">
+      <a class="nav-link" href="{% url 'index' %}">Moviez <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'categories' %}">Packages</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'products' %}">All Movies</a>            
+    </li>
+    <li class="nav-item">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Subscribe</a>
+          <div class="dropdown-menu mt-1" style="background: black; ">
+           {% if member %}
+            {% for item  in member %}
+              <a class="dropdown-item" href="{% url 'membership' item.id %}" style="color:powderblue;font-weight:700;">{{item.title}}</a>  
+            {% endfor %}
+           {% endif %}
+          </div>
+        </li>                
+    </li>
+    </li>
+    {% if user.is_authenticated %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'dashboard' %}">Dashboard <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'logoutfunc' %}">Logout</a>              
+    </li>
+{% else %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'loginform' %}">Login</a>              
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'signupform' %}">Signup</a>              
+    </li>
+{% endif %}
+  </ul>
+</div>
+</nav>
+        <!-- navbar  done -->
+      </div>
+</div>
+<!-- navbar  done -->
+
+</div>

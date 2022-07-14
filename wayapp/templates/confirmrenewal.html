@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+        Confirm Renewal
+{% endblock title %}
+
+
+{% block banner %}{% include "banner.html" %}{% endblock banner %}
+
+{% block content %}
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-8 col-sm-5 col-md-5 col-lg-3"></div>
+          <div class="col-8 col-sm-5 col-md-5 col-lg-5 p-5">
+            <form style="width: 400px;" method="POST" action="{% url 'memberdowngrade' %}">
+            {% csrf_token %}
+                <div class="form-group">
+                  <p>Complete Membership Renewal</p>
+                </div>
+                <button type="submit" class="btn btn-primary">Renew</button>
+              </form>
+          </div>
+          <div class="col-8 col-sm-5 col-md-5 col-lg-3"></div>
+      </div>
+  </div>
+{% endblock content %}

@@ -1,0 +1,173 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.top_box{
+    background:  linear-gradient(pink,black);
+}
+/* newcarousel  */
+
+
+/* /* newcarousel  */
+.newcarousel  .carousel-inner{
+    height: 25rem;
+}
+.govey{
+    background:  linear-gradient(pink,black);
+    /* background:  dodgerblue; */
+    opacity:  .8;
+    position: absolute;
+    top: 15%;
+    width: 100%;
+    z-index:  1000;
+}
+.navbar .navbar-brand{
+    color:  white;
+}
+.govey #navbarSupportedContent a{
+    color:  white;
+    font-weight: 900;
+}
+
+
+.dropdown .dropdown-menu{
+    background:  linear-gradient(pink,black);
+    /* background:  dodgerblue; */
+    opacity: .8;
+    color:  black;
+}
+.dropdown-menu .dropdown-item{
+    color:  white !important;
+}
+.dropdown-menu .dropdown-item:hover{
+    color:  dodgerblue !important;
+}
+.cardvids{
+    position:  relative;
+    transition:  0.5s;
+}
+.cardvids video{
+    height: 100%;
+    opacity: 1;
+    transition:  0.5s;
+}
+.cardvids .newvid{
+    position:  absolute;
+    color: yellow;
+    top:  7%;
+    left:  10%;
+    opacity: 0;
+    transition:  0.5s;
+}
+.cardvids:hover{
+    transform:  scale(1.2);
+}
+.cardvids:hover .newvid{
+    opacity: 1;
+    transition:  0.5s;
+}
+.cardvids:hover video{
+    opacity: .7;
+    transition:  0.5s;
+}
+.bot{
+    height: 10rem;
+    margin: 10rem 0;
+}
+.carousel-inner{
+    height: 25rem;
+}
+.carousel-item img{
+    margin: auto;
+}
+.cont {
+    position:  relative;
+    width: 50%;
+}
+
+.cont hr{
+    background:  wheat;
+}
+
+.image{
+    display: block;
+}
+.foot{
+    border-top:  .5px solid white;
+}
+/* #overlay{
+    position: absolute;
+    top: 0;
+    bottom:  100%;
+    left: 0%;
+    right: 0%;
+    width: 100%;
+    height: 0%;
+    overflow: hidden;
+    transition:  .5s;
+    background: #000;
+    padding:  -10px;
+    opacity: 0.8;
+} */
+/* .cont:hover #overlay{
+    bottom:  0;
+    height: 100%;
+} */
+
+
+.text {
+    font-size: 30px;
+    position: absolute;
+    width: 100%;
+    top: 94%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: seagreen;
+}
+
+.abt{
+    display: grid;
+    height: 150px;
+    align-items: center;
+    margin: 60px 60px;
+    color: red(250, 124, 145) ;
+}
+
+.abt h3{
+    padding-left:  40%;
+}
+
+
+.container {
+    color: antiquewhite;
+}
+.contain{
+    background:  linear-gradient(pink,black);
+    /* background: black; */
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.contain a{
+    color:  white;
+    text-decoration: none;
+    transition:  0.5 ease;
+}
+.contain:hover a{
+    transform: scale(1.5);
+}
+.contain a  i{
+    transition:  0.5 ease;
+}
+.contain a:hover i{
+    transform: scale(1.5);
+}
+.contain .textpa{
+    font-size: 1rem;
+    color: white;
+    max-width: 30rem;
+}
+.dashhead{
+    background: linear-gradient(pink,black);
+}

@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}
+   Activities History 
+{% endblock title %}
+
+
+{% block dashheader %}{% include "dashheader.html" %}{% endblock dashheader %}
+{% block content %}
+  <div class="container-fluid mb-5">
+    <h2 class="h3 mt-3 mb-4 text-danger text-center">Membership History</h2>
+      <div class="row">
+          <div class="col-9 col-sm-5 col-md-5 col-lg-3">
+            <ul class="list-unstyled">
+              <li > <a href="{% url 'dashboard' %}">Dashboard</a></li>
+              <li > <a href="{% url 'profile' %}">Profile</a></li>
+              <li><a href="{% url 'update' %}">Update Profile</a> </li>
+              <li><a href="{% url 'password' %}">Update Password</a> </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Upgrade
+              </a>
+              <div class="dropdown-menu mt-2"  style="background: powderblue;" aria-labelledby="navbarDropdown">             
+                {% if upgrade %}
+                    {% for item in upgrade %}
+                    <a class="dropdown-item" href="{%  url 'upgrade' item.id %} ">{{item.title}}</a> 
+                    {% endfor %}                  
+                {% endif %}
+              </div>
+            </li>
+            <br>
+            <li class="nav-item dropdown" style="list-style: none;">
+              <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Downgrade
+              </a>
+              <div class="dropdown-menu mt-2"  style="background: powderblue;" aria-labelledby="navbarDropdown">             
+                {% if downgrade %}
+                    {% for item in downgrade %}
+                    <a class="dropdown-item" href="{%  url 'downgrade' item.id %} ">{{item.title}}</a> 
+                    {% endfor %}                  
+                {% endif %}
+              </div>
+            </li>
+          </ul>
+          </div>
+          <div class="col-9 col-sm-5 col-md-5 col-lg-5 p-9 text-primary">
+            <h3 class="h4">Member: {{user.user.username|title}}</h3>
+            <h3 class="h4">Member code: {{user.id}}</h3>
+            <table class="table text-white">
+              <thead>
+                <tr>
+                  <th scope="col">Membership</th>
+                  <th scope="col">Amount (Naira)</th>
+                  <th scope="col">Phone</th>
+                  <th scope="col">Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% if pay %}
+                  {% for item in pay %}
+                    <tr>
+                      <td>{{item.title}}</td>
+                      <td>{{item.amount}}</td>
+                      <td>{{item.phone}}</td>
+                      <td>{{item.date_paid}}</td>
+                    </tr>
+                  {% endfor %}
+                {% endif %}
+              </tbody>
+            </table>
+          </div>
+          <div class="col-9 col-sm-5 col-md-5 col-lg-3"></div>
+      </div>
+  </div>
+{% endblock content %}

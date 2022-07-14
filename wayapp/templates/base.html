@@ -1,0 +1,107 @@
+<!doctype html>
+
+{% load static %}
+
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title> Project | {% block title %}  {% endblock title %} </title>
+  </head>
+  <body>
+ 
+{% block renewheader %}   {% endblock renewheader %}
+{% block dashheader %}   {% endblock dashheader %}
+      <!-- header section done -->
+
+      <!-- alert messages -->      
+      {% if messages %}
+          {% for item in messages  %}
+            <div class="alert alert-warning alert-dismissible fade  mb-2 show" role="alert">
+                    {{item}}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          {% endfor %}      
+      {% endif %}
+      <!-- alert messages done -->
+        
+
+      <!-- banner section -->
+     
+      
+      <div class="top_box pt-5 pb-5">
+        {% block banner %}
+        
+        {% endblock banner %}
+      </div>
+      <!-- banner section done -->
+
+      <!-- content section -->
+    {% block content %} 
+    
+    {% endblock content %}
+    <!-- content section done -->
+    <!-- footer -->
+    <div class="contain">
+      <div class="container">
+        <div class="row justify-content-center pt-5 pb-2">
+          <div class="col-10 col-md-5 col-lg-6  text-center">
+            <h3 class="text-white mb-3">About</h3>
+            <p class="textpa">Moviez.com <i>RENTING MADE SIMPLE </i> is an initiative  to help the movie industry boost and simplify movie renting. Moviez focuses on providing comfort to her viewers notwithstanding their membership packages.</p>
+          </div>
+          <div class="col-10 col-md-5 col-lg-2  text-center">
+            <h3 class="text-white mb-3">Categories</h3>
+            <ul class="list-unstyled">
+                <li><a href="">Foreign</a> </li>
+              <li><a href="">Local</a> </li>
+              <li><a href="">Latest</a></li> 
+            </ul>
+          </div>
+          <div class="col-10 col-md-5 col-lg-2  text-center">
+            <h3 class="text-white mb-3">Quick Links</h3>
+            <ul class="list-unstyled">
+              <li><a href="">About Us</a></li>
+              <li><a href="">Privacy Policy</a></li> 
+              <li><a href="">Sitemap</a> </li>
+            </ul>
+          </div>
+          <div class="col-10 col-md-5 col-lg-2  text-center">
+            <h3 class="text-white mb-3">Socials</h3>
+            <ul class="list-inline">
+              <li class="list-inline-item"><a class="facebook" href="#"><i class="fa fa-facebook"></i></a> </li>
+              <li  class="list-inline-item"><a class="twitter" href="#"><i class="fa fa-twitter"></i></a> </li>
+              <li  class="list-inline-item"><a class="whatsapp" href="#"><i class="fa fa-whatsapp"></i></a> </li>
+              <li  class="list-inline-item"><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a> </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="container text-warning pt-4 pb-4 text-center  foot">
+        <p class="copyright-text">Copyright&copy; 2021 All Rights Reserved by : <a class="text-white text-decoration-none" href="#">Governor</a></p>
+      </div>
+    </div>
+    <!-- footer done -->
+    
+        
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

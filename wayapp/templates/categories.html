@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %} All categories {% endblock title %}
+
+
+{% block banner %}{% include "banner.html" %}{% endblock banner %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center mb-4 text-warning">All Categories</h1>
+    <div class="row justify-content-center text-info">
+        {% if categories %}
+            {% for item in categories %}
+            <!--  -->
+            <div class="col-8 col-sm-5 col-md-5 col-lg-3 mt-3 mb-3"  data-aos="flip-left" data-aos-duration="3000">
+                <div class="card cardvids">
+                    <video >
+                        <source src="{{item.videofile.url}}" type="video/mp4">
+                    </video>
+                    <div class="card-body newvid">
+                    <h5 class="card-title">{{item.name}}</h5>
+                    <p class="card-text">{{item.description|slice:50}} ... </p>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>  
+
+{% endblock content %}
